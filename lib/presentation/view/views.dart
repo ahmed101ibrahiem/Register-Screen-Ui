@@ -5,15 +5,13 @@ import '../widget/clipper_widget.dart';
 import '../widget/text_form_widget.dart';
 
 class HomeView extends StatelessWidget {
-   HomeView({super.key});
-
-   final formKey = GlobalKey<FormState>();
+  HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
     double heightDevice = MediaQuery.of(context).size.height;
     double widthDevice = MediaQuery.of(context).size.width;
-    
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -48,91 +46,84 @@ class HomeView extends StatelessWidget {
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24),
-              child: Form(
-                key: formKey,
-                child: Column(
-                  children: [
-                    CustomTextField(
-                      label: 'Email',
-                      keyboaredTybe: TextInputType.emailAddress,
-                      iconData: Icons.email,
-                    ),
-                    const SizedBox(height: 20),
-                    CustomTextField(
-                        label: 'Full name',
-                        keyboaredTybe: TextInputType.name,
-                        iconData: Icons.person),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(
-                        label: 'Phone number',
-                        keyboaredTybe: TextInputType.phone,
-                        iconData: Icons.phone),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(
-                      num: 1,
-                      label: 'Password',
-                      keyboaredTybe: TextInputType.visiblePassword,
-                      iconData: Icons.lock,
-                      suffixIcon: Icons.visibility_off,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    CustomTextField(
-                     num: 2,
-                      keyboaredTybe: TextInputType.visiblePassword,
-                      label: 'Confirm Password',
-                      iconData: Icons.lock,
-                      suffixIcon: Icons.visibility_off,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    MaterialButton(
-                      minWidth: widthDevice,
-                      color: prColor,
-                      onPressed: () {
-                        if(formKey.currentState!.validate()){
-                             
-                            }
-                      },
-                      shape: const RoundedRectangleBorder(
-                          side: BorderSide(color: Color(0xFF304FFE))),
-                      child: const Padding(
-                        padding: EdgeInsets.all(15.0),
-                        child: Text(
-                          'Register',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
+              child: Column(
+                children: [
+                  CustomTextField(
+                    label: 'Email',
+                    keyboaredTybe: TextInputType.emailAddress,
+                    iconData: Icons.email,
+                  ),
+                  const SizedBox(height: 20),
+                  CustomTextField(
+                      label: 'Full name',
+                      keyboaredTybe: TextInputType.name,
+                      iconData: Icons.person),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextField(
+                      label: 'Phone number',
+                      keyboaredTybe: TextInputType.phone,
+                      iconData: Icons.phone),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextField(
+                    num: 1,
+                    label: 'Password',
+                    keyboaredTybe: TextInputType.visiblePassword,
+                    iconData: Icons.lock,
+                    suffixIcon: Icons.visibility_off,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextField(
+                    num: 2,
+                    keyboaredTybe: TextInputType.visiblePassword,
+                    label: 'Confirm Password',
+                    iconData: Icons.lock,
+                    suffixIcon: Icons.visibility_off,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  MaterialButton(
+                    minWidth: widthDevice,
+                    color: prColor,
+                    onPressed: () {},
+                    shape: const RoundedRectangleBorder(
+                        side: BorderSide(color: Color(0xFF304FFE))),
+                    child: const Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: Text(
+                        'Register',
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: widthDevice / 12,
-                    ),
-                    MaterialButton(
-                      minWidth: double.infinity,
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          side: BorderSide(color: Color(0xFF304FFE))),
-                      onPressed: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: Text(
-                          'Log in',
-                          style: TextStyle(
-                            color: Color(0xFF304FFE),
-                          ),
+                  ),
+                  SizedBox(
+                    height: widthDevice / 12,
+                  ),
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Color(0xFF304FFE))),
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        'Log in',
+                        style: TextStyle(
+                          color: Color(0xFF304FFE),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             )
           ],
