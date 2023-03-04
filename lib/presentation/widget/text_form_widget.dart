@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../../constant.dart';
+import '../../core/utils/app_colors.dart';
 
-class CustomTextField extends StatelessWidget {
+class CustomTextField extends StatefulWidget {
   final String label;
   final IconData iconData;
   final TextInputType keyboaredTybe;
+  bool obscureText ;
+  String? Function(String? val)? validate;
    final int? num;
    IconData? suffixIcon;
    CustomTextField({
     required this.keyboaredTybe,
-    
+    this.validate,
+    this.obscureText =false,
     this.suffixIcon,
     required this.label,
     this.num,
@@ -19,21 +22,29 @@ class CustomTextField extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      keyboardType: keyboaredTybe,
-      obscureText:num != null ?true:false,
+      keyboardType: widget.keyboaredTybe,
+      validator: widget.validate,
+      obscureText:widget.obscureText,
       decoration: InputDecoration(
-      
-          label: Text(label),
+          label: Text(widget.label),
           labelStyle: const TextStyle(color: kColor, fontWeight: FontWeight.bold),
           //suffixIcon: Icon(Icons.email,color: kColor),
           border: InputBorder.none,
-
           filled: true,
-          suffixIcon:suffixIcon != null? Icon(suffixIcon,color: kColor,):null,
+          suffixIcon:widget.suffixIcon != null? IconButton(onPressed: (){
+            setState(() {
+              widget.obscureText = !widget.obscureText;
+            });
+          },color: kColor, icon:widget.obscureText? Icon(Icons.visibility_sharp):Icon(Icons.visibility_off_sharp),):null,
            isDense: true,
-          prefixIcon: Icon(iconData, color: kColor)),
+          prefixIcon: Icon(widget.iconData, color: kColor)),
     );
   }
 }
